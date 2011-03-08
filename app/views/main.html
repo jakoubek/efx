@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>#{get 'title' /}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}">
+    #{get 'moreStyles' /}
+    <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+    <script src="@{'/public/javascripts/jquery-1.4.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+    #{get 'moreScripts' /}
+</head>
+<body>
+<div id="header">
+    <a href="@{Application.index}" title="&{'start.pagetitle.tooltip'}">&{'start.pagetitle'}</a>
+
+    <span class="right">
+    #{if session.username}
+    <span class="username" title="&{'session.username.tooltip'}">&{'session.loggedInAs', session.username}</span> |
+    <a href="@{Secure.logout()}" title="&{'session.logout.tooltip'}">&{'session.logout'}</a>
+    #{/if}
+    </span>
+
+</div>
+#{doLayout /}
+<div id="footer">
+    <a href="@{Application.index}" title="&{'start.pagetitle.tooltip'}">&{'start.pagetitle'}</a>
+    <span class="right">&{'version'} #{version /}</span>
+</div>
+</body>
+</html>

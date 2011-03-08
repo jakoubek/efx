@@ -1,0 +1,20 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+
+*       /                   module:secure
+GET     /                   Application.index
+GET     /login              Application.login
+GET     /logout             Application.logout
+GET     /funktionen         Application.funktionen
+GET     /dbversion          Application.dbversion
+GET     /connected          Application.connectedUsers
+GET     /betreuer           Betreuer.list
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

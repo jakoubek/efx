@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+#{set title:'Angemeldete Benutzer' /}
+
+<h1>#{get 'title' /}</h1>
+
+<p>
+EFX ist eine webbasierte Software, die alle bisherigen Erweiterungen (Programme auf Basis von Microsoft Access) zur ZSP-Software ersetzen soll.
+</p>
+
+<table border="1">
+<tr>
+<th>Verbindung #</th>
+<th>User-ID</th>
+<th>Link</th>
+<th>Adresse</th>
+</tr>
+#{list items:users, as:'user'}
+<tr>
+<td>${user.connNumber}</td>
+<td>${user.userId}</td>
+<td>${user.commLink}</td>
+<td>${user.nodeAddr}</td>
+</tr>
+#{/list}
+</table>

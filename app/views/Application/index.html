@@ -1,0 +1,47 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Startseite von EFX</h1>
+
+<p>
+EFX ist eine webbasierte Software, die alle bisherigen Erweiterungen (Programme auf Basis von Microsoft Access) zur ZSP-Software ersetzen soll.
+</p>
+
+<ul>
+<li><a href="@{Application.funktionen()}">Funktionsübersicht</a></li>
+
+</ul>
+
+<div class="functions" id="queries">
+    <h2>Abfragen</h2>
+
+    <div class="subfunctions" id="queries-zusteller">
+        <h3>Zusteller</h3>
+    </div>
+
+    <div class="subfunctions" id="queries-bezirk">
+        <h3>Bezirk</h3>
+    </div>
+
+    <div class="subfunctions" id="queries-andere">
+        <h3>Andere</h3>
+        <ul>
+            <li><a href="@{Betreuer.list()}">Liste der Betreuer</a></li>
+            <li><a href="@{Application.connectedUsers()}">Angemeldete Benutzer anzeigen</a></li>
+            <li><a href="@{Application.dbversion()}">Datenbank-Version anzeigen</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="functions" id="zustellerabrechnung">
+    <h2>Zustellerabrechnung</h2>
+</div>
+
+<div class="functions" id="dokumentendruck">
+    <h2>Dokumentendruck</h2>
+</div>
+
+<div class="functions" id="strassenliste">
+    <h2>Straßenliste</h2>
+</div>

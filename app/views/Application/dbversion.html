@@ -1,0 +1,13 @@
+#{extends 'main.html' /}
+#{set title:'Datenbank-Version' /}
+
+<h1>#{get 'title' /}</h1>
+
+<p>
+EFX ist eine webbasierte Software, die alle bisherigen Erweiterungen (Programme auf Basis von Microsoft Access) zur ZSP-Software ersetzen soll.
+</p>
+
+<ul>
+<li>Datenbank-Version: ${versionObject.version}</li>
+<li>Eingespielt am: ${versionObject.aenderung}</li>
+</ul>

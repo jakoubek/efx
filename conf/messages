@@ -1,0 +1,19 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+#
+
+secure.title=Bitte melden Sie sich mit Ihren ZSP-Anmeldedaten an.
+secure.username=Benutzername
+secure.password=Passwort
+secure.remember=Meine Anmeldedaten merken
+secure.signin=Anmelden
+secure.logout=Sie haben sich abgemeldet.
+session.logout=Abmelden
+session.logout.tooltip=Melden Sie sich von der Anwendung ab.
+session.loggedInAs=Angemeldet als: %s
+session.username.tooltip=Ihr ZSP-Benutzername
+
+version=Version
+
+start.pagetitle=Startseite
+start.pagetitle.tooltip=Zur Startseite

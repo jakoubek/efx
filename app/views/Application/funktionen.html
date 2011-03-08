@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+#{set title:'Funktionsübersicht' /}
+
+<h1>#{get 'title' /}</h1>
+
+<p>
+Liste aller verfügbaren Funktionen:
+</p>
+
+<table border="1">
+<tr>
+<th>ID #</th>
+<th>Funktion</th>
+<th>Controller</th>
+<th>Aufruf</th>
+</tr>
+#{list items:funktionen, as:'funktion'}
+<tr>
+<td>${funktion.id}</td>
+<td>${funktion.funcname}</td>
+<td>${funktion.controllerName}</td>
+<td><a href="@{Application.index()}">Link</a></td>
+</tr>
+#{/list}
+</table>

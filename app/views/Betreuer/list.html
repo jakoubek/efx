@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+#{set title:'Liste der Betreuer' /}
+
+<h1>#{get 'title' /}</h1>
+
+<table border="1">
+    <tr>
+        <th>Nachname</th>
+        <th>Vorname</th>
+        <th>ZSP-Benutzer-ID</th>
+    </tr>
+    #{list items:betreuerliste, as:'betreuer'}
+    <tr>
+        <td>${betreuer.nachname}</td>
+        <td>${betreuer.vorname}</td>
+        <td>${betreuer.userid}</td>
+    </tr>
+    #{/list}
+</table>
