@@ -1,1 +1,1 @@
-! EFX = webbasierte Abfrageanwendung für die Software ZSP
+# EFX = webbasierte Abfrageanwendung für die Software ZSP
