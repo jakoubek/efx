@@ -1,10 +1,10 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'Startseite' /}
 
-<h1>Startseite von EFX</h1>
+<h1>Startseite von &{'app.title'}</h1>
 
 <p>
-EFX ist eine webbasierte Software, die alle bisherigen Erweiterungen (Programme auf Basis von Microsoft Access) zur ZSP-Software ersetzen soll.
+&{'app.title'} ist eine webbasierte Software, die alle bisherigen Erweiterungen (Programme auf Basis von Microsoft Access) zur ZSP-Software ersetzen soll.
 </p>
 
 <ul>
@@ -21,6 +21,9 @@ EFX ist eine webbasierte Software, die alle bisherigen Erweiterungen (Programme 
 
     <div class="subfunctions" id="queries-bezirk">
         <h3>Bezirk</h3>
+        <ul>
+            <li><a href="@{Bezirke.listOffene()}">Liste offener Bezirke</a></li>
+        </ul>
     </div>
 
     <div class="subfunctions" id="queries-andere">

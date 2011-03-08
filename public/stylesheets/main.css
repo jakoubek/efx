@@ -20,6 +20,7 @@ div#footer {
     border-bottom: 1px solid grey;
     padding-top: .2em;
     padding-bottom: .2em;
+    margin-top: .5em;
 }
 
 div#footer span.right {

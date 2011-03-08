@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+#{set title:'Liste der offenen Bezirke' /}
+
+<h1>#{get 'title' /}</h1>
+
+<table border="1">
+    <tr>
+        <th>Betreuer</th>
+        <th>Aktionstag</th>
+        <th>Bezirk</th>
+        <th>Anzahl Würfe</th>
+    </tr>
+    #{list items:bezirke, as:'bezirk'}
+    <tr>
+        <td>${bezirk.betreuer}</td>
+        <td>${bezirk.aktionstag}</td>
+        <td>${bezirk.bezirk}</td>
+        <td>${bezirk.anzahlWuerfe}</td>
+    </tr>
+    #{/list}
+</table>

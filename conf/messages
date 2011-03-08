@@ -13,10 +13,10 @@ session.logout.tooltip=Melden Sie sich von der Anwendung ab.
 session.loggedInAs=Angemeldet als: %s
 session.username.tooltip=Ihr ZSP-Benutzername
 
-version=Version
-
 start.pagetitle=Startseite
 start.pagetitle.tooltip=Zur Startseite
+
+app.title=EFX
 
 app.version=Versionsnummer
 app.releasedate=Veröffentlicht am
