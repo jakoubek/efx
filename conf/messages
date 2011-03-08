@@ -17,3 +17,7 @@ version=Version
 
 start.pagetitle=Startseite
 start.pagetitle.tooltip=Zur Startseite
+
+app.version=Versionsnummer
+app.releasedate=Veröffentlicht am
+app.revision=ID des Versionskontrollsystems
