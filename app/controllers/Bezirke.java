@@ -1,7 +1,10 @@
 package controllers;
 
-import models.TourBezirk;
-import play.mvc.Controller;
+import play.*;
+import play.mvc.*;
+import play.cache.Cache;
+
+import models.*;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,10 +15,17 @@ import java.util.Date;
 
 public class Bezirke extends Controller {
 
-    public static void listOffene(String betreuer, String aktionstag) {
+    public static void listOffene(String betreuer, Date aktionstag) {
+
+        models.touren.OffeneBezirke offenebezirke = new models.touren.OffeneBezirke();
 
         models.Betreuers bl = new models.Betreuers();
-        ArrayList<models.Betreuer> betreuerliste = bl.getBetreuerWithId();
+        ArrayList<models.Betreuer> betreuerliste = Cache.get("betreuerliste", ArrayList.class);
+        if(betreuerliste == null) {
+            betreuerliste = bl.getBetreuerWithId();
+            Cache.set("betreuerliste", betreuerliste, "30mn");
+        }
+        ArrayList<models.Aktionstag> aktionstage = new ArrayList();
 
     if (betreuer == null) {
 
@@ -23,9 +33,8 @@ public class Bezirke extends Controller {
 
     } else if (betreuer != null && aktionstag == null) {
 
-        Connection conn;
+        /*Connection conn;
         ResultSet rs;
-        ArrayList<models.Aktionstag> aktionstage = new ArrayList();
 
         try {
 
@@ -48,7 +57,13 @@ public class Bezirke extends Controller {
         catch ( SQLException e ) {
             e.printStackTrace();
             System.exit(1);
-        }   
+        }   */
+
+        aktionstage = Cache.get("offenebezirke_aktionstage_" + betreuer, ArrayList.class);
+        if (aktionstage == null) {
+            aktionstage = offenebezirke.getAktionstageForBetreuer(betreuer);
+            Cache.set("offenebezirke_aktionstage_" + betreuer, aktionstage, "30mn");
+        }
 
         render(betreuerliste, betreuer, aktionstage);
 
@@ -63,7 +78,8 @@ public class Bezirke extends Controller {
             conn = play.db.DB.getConnection();
             PreparedStatement stmt = conn.prepareStatement("SELECT t.id, t.aktionstag, t.bezirk, b.bezeichnung, ISNULL(b.code1, '<kein>'), (SELECT COUNT(*) FROM tourenposi4posi2011 WHERE posi = t.id) FROM touren2011 AS t INNER JOIN bezirk AS b ON b.regionalschluessel = t.bezirk WHERE t.aktionstag >= ( CURRENT DATE - 30 ) AND t.zusteller IS NULL AND b.code1 = ? AND t.aktionstag = ? ORDER BY t.aktionstag, b.bezeichnung");
             stmt.setString(1, betreuer);
-            stmt.setString(2, aktionstag);
+//            stmt.setString(2, aktionstag);
+            stmt.setString(2, aktionstag.toString());
             rs = stmt.executeQuery();
 
             while ( rs.next() ){
@@ -86,7 +102,13 @@ public class Bezirke extends Controller {
             System.exit(1);
         }   
 
-            render(betreuerliste, betreuer, bezirke);
+            aktionstage = Cache.get("offenebezirke_aktionstage_" + betreuer, ArrayList.class);
+            if (aktionstage == null) {
+                aktionstage = offenebezirke.getAktionstageForBetreuer(betreuer);
+                Cache.set("offenebezirke_aktionstage_" + betreuer, aktionstage, "30mn");
+            }
+
+            render(betreuerliste, betreuer, aktionstage, aktionstag, bezirke);
         }
 
     }

@@ -3,7 +3,7 @@
 
 <h1>#{get 'title' /}
 #{if bezirke}
- für Betreuer ${betreuer}
+ für Betreuer ${betreuer} am ${aktionstag}
 #{/if}
 </h1>
 
@@ -14,38 +14,32 @@
 <label>&{field.name}</label>
 #{select 'betreuer', items:betreuerliste, valueProperty:'userid', value:betreuer , labelProperty:'fullname' /}
 #{/field}
-<input type="submit" value="Anzeigen" />
-</fieldset>
-#{/form}
 
 #{if aktionstage}
 
-<table border="1">
-    <tr>
-        <th>Aktionstag</th>
-        <th>Anzahl Bezirke</th>
-    </tr>
-    #{list items:aktionstage, as:'aktionstag'}
-    <tr>
-        <td>${aktionstag.aktionstag}</td>
-        <td><a href="@{Bezirke.listOffene(betreuer, aktionstag.aktionstag.format())}">${aktionstag.anzahl}</a></td>
-    </tr>
-    #{/list}
-</table>
-
+#{field 'aktionstag'}
+<label>&{field.name}</label>
+#{select 'aktionstag', items:aktionstage, valueProperty:'datum', value:aktionstag, labelProperty:'fullname' /}
+#{/field}
 
 #{/if}
+
+<input type="submit" value="Anzeigen" />
+</fieldset>
+#{/form}
 
 #{if bezirke}
 
 <table border="1">
     <tr>
+        <th>Betreuer</th>
         <th>Aktionstag</th>
         <th>Bezirk</th>
         <th>Anzahl Würfe</th>
     </tr>
     #{list items:bezirke, as:'bezirk'}
     <tr>
+        <td>${bezirk.betreuer}</td>
         <td>${bezirk.aktionstag}</td>
         <td>${bezirk.bezirk}</td>
         <td>${bezirk.anzahlWuerfe}</td>

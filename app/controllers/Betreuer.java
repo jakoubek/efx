@@ -2,6 +2,7 @@ package controllers;
 
 import play.*;
 import play.mvc.*;
+import play.cache.Cache;
 
 import java.util.*;
 import java.sql.*;
@@ -11,6 +12,20 @@ import models.*;
 public class Betreuer extends Controller {
 
     public static void list() {
+
+        models.Betreuers bl = new models.Betreuers();
+
+        ArrayList<models.Betreuer> betreuerliste = Cache.get("betreuerliste", ArrayList.class);
+        if(betreuerliste == null) {
+            betreuerliste = bl.getBetreuerWithId();
+            Cache.set("betreuerliste", betreuerliste, "30mn");
+        }
+        
+        render(betreuerliste);
+
+    }
+
+    public static void list2() {
 
     Connection conn;
     Statement stmt;
