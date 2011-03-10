@@ -21,3 +21,5 @@ app.title=EFX
 app.version=Versionsnummer
 app.releasedate=Veröffentlicht am
 app.revision=ID des Versionskontrollsystems
+
+betreuer=Betreuer

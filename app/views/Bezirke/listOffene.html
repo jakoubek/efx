@@ -1,21 +1,56 @@
 #{extends 'main.html' /}
 #{set title:'Liste der offenen Bezirke' /}
 
-<h1>#{get 'title' /}</h1>
+<h1>#{get 'title' /}
+#{if bezirke}
+ für Betreuer ${betreuer}
+#{/if}
+</h1>
+
+#{form @Bezirke.listOffene()}
+<fieldset>
+    <legend>Parameter</legend>
+#{field 'betreuer'}
+<label>&{field.name}</label>
+#{select 'betreuer', items:betreuerliste, valueProperty:'userid', value:betreuer , labelProperty:'fullname' /}
+#{/field}
+<input type="submit" value="Anzeigen" />
+</fieldset>
+#{/form}
+
+#{if aktionstage}
 
 <table border="1">
     <tr>
-        <th>Betreuer</th>
+        <th>Aktionstag</th>
+        <th>Anzahl Bezirke</th>
+    </tr>
+    #{list items:aktionstage, as:'aktionstag'}
+    <tr>
+        <td>${aktionstag.aktionstag}</td>
+        <td><a href="@{Bezirke.listOffene(betreuer, aktionstag.aktionstag.format())}">${aktionstag.anzahl}</a></td>
+    </tr>
+    #{/list}
+</table>
+
+
+#{/if}
+
+#{if bezirke}
+
+<table border="1">
+    <tr>
         <th>Aktionstag</th>
         <th>Bezirk</th>
         <th>Anzahl Würfe</th>
     </tr>
     #{list items:bezirke, as:'bezirk'}
     <tr>
-        <td>${bezirk.betreuer}</td>
         <td>${bezirk.aktionstag}</td>
         <td>${bezirk.bezirk}</td>
         <td>${bezirk.anzahlWuerfe}</td>
     </tr>
     #{/list}
 </table>
+
+#{/if}

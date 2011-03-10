@@ -14,6 +14,7 @@ GET     /connected          Application.connectedUsers
 GET     /betreuer           Betreuer.list
 GET     /offene-bezirke     Bezirke.listOffene
 
+
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
