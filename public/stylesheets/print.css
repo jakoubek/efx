@@ -27,14 +27,18 @@ div#footer span.right {
     float: right;
 }
 
-.print {
+.web {
     display:none;
 }
 
 h1 {
-    font-size: x-large;
+    font-size: large;
     margin-top: .2em;
     margin-bottom: .2em;
+}
+
+table {
+    width: 100%;
 }
 
 p {

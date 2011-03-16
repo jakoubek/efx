@@ -9,6 +9,7 @@ import java.sql.*;
 
 import models.*;
 
+@With(Secure.class)
 public class Betreuer extends Controller {
 
     public static void list() {

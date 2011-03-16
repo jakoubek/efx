@@ -12,6 +12,7 @@ session.logout=Abmelden
 session.logout.tooltip=Melden Sie sich von der Anwendung ab.
 session.loggedInAs=Angemeldet als: %s
 session.username.tooltip=Ihr ZSP-Benutzername
+session.loggedInAsPrint=Ausgedruckt von %s
 
 start.pagetitle=Startseite
 start.pagetitle.tooltip=Zur Startseite
@@ -21,6 +22,8 @@ app.title=EFX
 app.version=Versionsnummer
 app.releasedate=Veröffentlicht am
 app.revision=ID des Versionskontrollsystems
+
+printlink=drucken
 
 betreuer=Betreuer
 aktionstag=Aktionstag

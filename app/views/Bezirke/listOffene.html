@@ -3,11 +3,15 @@
 
 <h1>#{get 'title' /}
 #{if bezirke}
- für Betreuer ${betreuer} am ${aktionstag}
+ für Betreuer ${betreuer}
 #{/if}
 </h1>
 
-#{form @Bezirke.listOffene()}
+<span class="right web">
+#{printlink /}
+</span>
+
+#{form @Bezirke.listOffene(), class:'web'}
 <fieldset>
     <legend>Parameter</legend>
 #{field 'betreuer'}
@@ -15,16 +19,8 @@
 #{select 'betreuer', items:betreuerliste, valueProperty:'userid', value:betreuer , labelProperty:'fullname' /}
 #{/field}
 
-#{if aktionstage}
+<input type="submit" id="show" value="Anzeigen" />
 
-#{field 'aktionstag'}
-<label>&{field.name}</label>
-#{select 'aktionstag', items:aktionstage, valueProperty:'datum', value:aktionstag, labelProperty:'fullname' /}
-#{/field}
-
-#{/if}
-
-<input type="submit" value="Anzeigen" />
 </fieldset>
 #{/form}
 
@@ -32,19 +28,19 @@
 
 <table border="1">
     <tr>
-        <th>Betreuer</th>
         <th>Aktionstag</th>
         <th>Bezirk</th>
         <th>Anzahl Würfe</th>
     </tr>
     #{list items:bezirke, as:'bezirk'}
     <tr>
-        <td>${bezirk.betreuer}</td>
         <td>${bezirk.aktionstag}</td>
         <td>${bezirk.bezirk}</td>
         <td>${bezirk.anzahlWuerfe}</td>
     </tr>
     #{/list}
 </table>
+
+<span>${bezirke.size} Einträge</span>
 
 #{/if}
