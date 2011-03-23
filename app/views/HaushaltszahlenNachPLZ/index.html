@@ -1,0 +1,46 @@
+#{extends 'main.html' /}
+#{set title:'Haushaltszahlen nach PLZ' /}
+
+<h1>#{get 'title' /}</h1>
+
+<span class="right web">
+#{printlink /}
+</span>
+
+#{form @HaushaltszahlenNachPLZ.index(), class:'web'}
+<fieldset>
+    <legend>Parameter</legend>
+#{field 'plz'}
+<label>&{field.name}</label>
+<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}" />
+#{/field}
+<input type="submit" id="show" value="Anzeigen" />
+</fieldset>
+#{/form}
+
+#{if haushaltszahlen}
+
+<table border="1">
+    <tr>
+        <th>PLZ</th>
+        <th>Gemeinde</th>
+        <th>Ortsteil</th>
+        <th>Brutto-HHZ</th>
+        <th>Netto-HHZ</th>
+        <th>Anz.blatt-HHZ</th>
+    </tr>
+    #{list items:haushaltszahlen, as:'zeile'}
+    <tr>
+        <td>${zeile.plz}</td>
+        <td>${zeile.gemeinde}</td>
+        <td>${zeile.ortsteil}</td>
+        <td class="number">${zeile.bruttohhz.format('#,##0')}</td>
+        <td class="number">${zeile.nettohhz.format('#,##0')}</td>
+        <td class="number">${zeile.anzblatthhz.format('#,##0')}</td>
+    </tr>
+    #{/list}
+</table>
+
+<span>${haushaltszahlen.size} Einträge</span>
+
+#{/if}

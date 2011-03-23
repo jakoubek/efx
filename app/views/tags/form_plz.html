@@ -1,0 +1,10 @@
+#{form @HaushaltszahlenNachPLZ.list(), class:'web'}
+<fieldset>
+    <legend>Parameter</legend>
+#{field 'plz'}
+<label>&{field.name}</label>
+<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}" />
+#{/field}
+<input type="submit" id="show" value="Anzeigen" />
+</fieldset>
+#{/form}

@@ -17,7 +17,7 @@ session.loggedInAsPrint=Ausgedruckt von %s
 start.pagetitle=Startseite
 start.pagetitle.tooltip=Zur Startseite
 
-app.title=EFX
+app.title=Erweiterte Funktionen
 
 app.version=Versionsnummer
 app.releasedate=Veröffentlicht am
@@ -27,3 +27,5 @@ printlink=drucken
 
 betreuer=Betreuer
 aktionstag=Aktionstag
+
+plz=Postleitzahl

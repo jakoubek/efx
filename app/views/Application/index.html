@@ -1,50 +1,84 @@
 #{extends 'main.html' /}
-#{set title:'Startseite' /}
+#{set title:'Erweiterte Funktionen' /}
+#{set 'moreStyles'}
+#{stylesheet 'jquery-ui-1.8.11.custom.css' /}
+#{/set}
+#{set 'moreScripts'}
+#{script 'jquery-ui-1.8.11.custom.min.js' /}
+#{/set}
 
-<h1>Startseite von &{'app.title'}</h1>
+<script>
+    $(function() {
+        $( "#accordion" ).accordion();
+    });
+</script>
 
-<p>
-&{'app.title'} ist eine webbasierte Software, die alle bisherigen Erweiterungen (Programme auf Basis von Microsoft Access) zur ZSP-Software ersetzen soll.
-</p>
+<h1>&{'app.title'}</h1>
 
-<ul>
-<li><a href="@{Application.funktionen()}">Funktionsübersicht</a></li>
-
-</ul>
-
-<div class="functions" id="queries">
-    <h2>Abfragen</h2>
-
-    <div class="subfunctions" id="queries-zusteller">
-        <h3>Zusteller</h3>
-    </div>
-
-    <div class="subfunctions" id="queries-bezirk">
-        <h3>Bezirk</h3>
+<div class="functions" id="accordion">
+    <h3><a href="#">Zusteller</a></h3>
+    <div>
         <ul>
+            <li>Ausgetretene Zusteller im Abrechnungsmonat</li>
+            <li>Liste aller aktiven Zusteller nach Betreuer</li>
+            <li>Personenkreise</li>
+            <li>Zentrale Zusteller-Suche</li>
+            <li>Zuordnungen mit Zulage</li>
+            <li>Zusteller-Arbeitstage</li>
+            <li>Zusteller mit aktueller Bankverbindung</li>
+            <li>Zusteller mit Datumseinträgen</li>
+            <li>Zusteller mit Eintritt/Austritt im Zeitraum</li>
+            <li>Zustellerdaten-Testlauf</li>
+            <li>Zustellerliste</li>
+        </ul>
+    </div>
+    <h3><a href="#">Bezirk</a></h3>
+    <div>
+        <ul>
+            <li>Bezirke mit unregelmäßiger Verteilung</li>
+            <li>Bezirke mit Wurfanzahl auf Touren je Aktionstag</li>
+            <li>Bezirksliste</li>
             <li><a href="@{Bezirke.listOffene()}">Liste offener Bezirke</a></li>
         </ul>
     </div>
-
-    <div class="subfunctions" id="queries-andere">
-        <h3>Andere</h3>
+    <h3><a href="#">Logistik</a></h3>
+    <div>
         <ul>
+            <li>Gesamtaddition (nur eigene Mengen)</li>
+            <li>Objekte auf Touren</li>
+            <li>Tourendefinition: doppelt vergebene Pos-Nr.n</li>
+            <li>Tourenpositionen verschmelzen</li>
+        </ul>
+    </div>
+    <h3><a href="#">BRD</a></h3>
+    <div>
+        <ul>
+            <li><a href="@{HaushaltszahlenNachPLZ.index()}">Haushaltszahlen nach PLZ</a></li>
+        </ul>
+    </div>
+    <h3><a href="#">Zustellerabrechnung</a></h3>
+    <div>
+        <ul>
+            <li>Manuelle Buchungssätze</li>
+        </ul>
+    </div>
+    <h3><a href="#">Dokumentendruck</a></h3>
+    <div>
+        <ul>
+        </ul>
+    </div>
+    <h3><a href="#">Straßenliste</a></h3>
+    <div></div>
+    <h3><a href="#">andere</a></h3>
+    <div>
+        <ul>
+            <li><a href="@{Application.funktionen()}">Funktionsübersicht</a></li>
+
             <li><a href="@{Betreuer.list()}">Liste der Betreuer</a></li>
             <li><a href="@{Application.connectedUsers()}">Angemeldete Benutzer anzeigen</a></li>
             <li><a href="@{Application.dbversion()}">Datenbank-Version anzeigen</a></li>
+
         </ul>
     </div>
-
 </div>
 
-<div class="functions" id="zustellerabrechnung">
-    <h2>Zustellerabrechnung</h2>
-</div>
-
-<div class="functions" id="dokumentendruck">
-    <h2>Dokumentendruck</h2>
-</div>
-
-<div class="functions" id="strassenliste">
-    <h2>Straßenliste</h2>
-</div>

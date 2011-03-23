@@ -41,33 +41,17 @@ p {
     margin-top: .1em;
 }
 
-div.functions {
-    border: 1px solid grey;
-    margin: .5em 1em .5em 1em;
-}
-
-div.functions h2 {
-    font-size: large;
-    margin-top: .4em;
-    margin-left: .5em;
-    margin-bottom: .2em;
-}
-
-div.subfunctions {
-    border: 1px solid grey;
-    margin-top: .2em;
-    margin: .5em;
-}
-
-div.subfunctions h3 {
+div.functions h3 {
     font-size: medium;
-    margin-top: .3em;
-    margin-left: .5em;
-    margin-bottom: .2em;
 }
 
-div.subfunctions ul {
+div.functions ul {
+    font-size: medium;
     margin-top: .2em;
     margin-bottom: .4em;
     list-style-type: square;
+}
+
+table td.number {
+    text-align: right;
 }
