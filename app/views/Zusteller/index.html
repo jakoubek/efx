@@ -1,0 +1,56 @@
+#{extends 'main.html' /}
+#{set title:'Zentrale Zustellersuche' /}
+
+<h1>#{get 'title' /}</h1>
+
+#{form @Zusteller.suche(), class:'web'}
+<fieldset>
+    <legend>Parameter</legend>
+#{field 'q'}
+<label>&{field.name}</label>
+<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}" placeholder="Nachname oder Vorname" autofocus />
+#{/field}
+<input type="submit" id="show" value="Anzeigen" />
+</fieldset>
+#{/form}
+
+#{if zustellerliste}
+
+<table border="1">
+    <tr>
+        <th>PersonalNr</th>
+        <th>Zusteller</th>
+        <th>Geschlecht</th>
+        <th>Wohnort</th>
+        <th>Aktiv</th>
+        <th>Geburtsdatum</th>
+        <th>Betreuer</th>
+        <th>Eintritt</th>
+        <th>Austritt</th>
+        <th>Info</th>
+    </tr>
+    #{list items:zustellerliste, as:'zusteller'}
+    #{if zusteller.einstellungsverbot == 'Y'}
+    <tr class="einstellungsverbot">
+    #{/if}
+    #{else}
+    <tr>
+    #{/else}
+        <td>${zusteller.personalnr}</td>
+        <td><a href="@{Zusteller.getZusteller(zusteller.id)}">${zusteller}</a></td>
+        <td>${zusteller.geschlecht}</td>
+        <td>${zusteller.hauptort}</td>
+        <td>${zusteller.aktiv}</td>
+        <td>${zusteller.geburtsdatum}</td>
+        <td>${zusteller.betreuer}</td>
+        <td>${zusteller.eintritt}</td>
+        <td>${zusteller.austritt}</td>
+        <td>${zusteller.einstellungsverbot}</td>
+    </tr>
+    #{/list}
+</table>
+
+<span>${zustellerliste.size} Einträge</span>
+
+#{/if}
+

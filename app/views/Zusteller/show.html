@@ -1,0 +1,84 @@
+#{extends 'main.html' /}
+#{set 'title'}
+Zusteller ${zusteller} anzeigen
+#{/set}
+#{set 'moreStyles'}
+#{stylesheet 'jquery-ui-1.8.11.custom.css' /}
+#{/set}
+#{set 'moreScripts'}
+#{script 'jquery-ui-1.8.11.custom.min.js' /}
+#{/set}
+
+<script>
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+</script>
+
+<h1>#{get 'title' /}</h1>
+
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Zusteller</a></li>
+        <li><a href="#tabs-2">Weitere Angaben</a></li>
+    </ul>
+
+    <div id="tabs-1">
+<table border="1">
+    <tr>
+        <td>ID (Farbcode)</td>
+        <td>${zusteller.id}</td>
+    </tr>
+    <tr>
+        <td>ADRINFOKEY</td>
+        <td>${zusteller.adrinfokey}</td>
+    </tr>
+    <tr>
+        <td>Nachname</td>
+        <td>${zusteller.nachname}</td>
+    </tr>
+    <tr>
+        <td>Vorname</td>
+        <td>${zusteller.vorname}</td>
+    </tr>
+     <tr>
+        <td>Straße</td>
+        <td>${zusteller.strasse}</td>
+    </tr>
+     <tr>
+        <td>PLZ</td>
+        <td>${zusteller.plz}</td>
+    </tr>
+     <tr>
+        <td>Hauptort</td>
+        <td>${zusteller.hauptort}</td>
+    </tr>
+     <tr>
+        <td>Ortsteil</td>
+        <td>${zusteller.ortsteil}</td>
+    </tr>
+</table>
+        </div>
+
+    <div id="tabs-2">
+        <table>
+            <tr>
+                <td>Personalnummer</td>
+                <td>${zusteller.personalnr}</td>
+            </tr>
+            <tr>
+                <td>Urlaubsanspruch</td>
+                <td>${zusteller.urlaubsanspruch}</td>
+            </tr>
+            <tr>
+                <td>Einstellungsverbot</td>
+                <td>${zusteller.einstellungsverbot}</td>
+            </tr>
+        </table>
+    </div>
+
+
+    </div>
+
+
+

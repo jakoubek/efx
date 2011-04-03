@@ -55,3 +55,7 @@ div.functions ul {
 table td.number {
     text-align: right;
 }
+
+table tr.einstellungsverbot {
+    background-color: red;
+}

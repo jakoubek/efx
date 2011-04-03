@@ -15,6 +15,9 @@ GET     /betreuer               Betreuer.list
 GET     /offene-bezirke         Bezirke.listOffene
 GET     /objekte-auf-touren     ObjekteAufTouren.index
 GET     /hhz-nach-plz           HaushaltszahlenNachPLZ.index
+GET     /zusteller/             Zusteller.index
+GET     /zusteller/suche        Zusteller.suche
+GET     /zusteller/{id}         Zusteller.getZusteller
 
 
 # Map static resources from the /app/public folder to the /public path
