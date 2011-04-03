@@ -45,7 +45,11 @@
         <td>${zusteller.betreuer}</td>
         <td>${zusteller.eintritt}</td>
         <td>${zusteller.austritt}</td>
-        <td>${zusteller.einstellungsverbot}</td>
+        <td>
+         #{if zusteller.einstellungsverbot == 'Y'}
+         <img src="@{'/public/images/icon_stop_hand.gif'}" title="Zusteller hat Einstellungsverbot" height="20" width="20" />
+         #{/if}
+        </td>
     </tr>
     #{/list}
 </table>
