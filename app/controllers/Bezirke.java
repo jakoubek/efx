@@ -19,7 +19,7 @@ import java.sql.Date;
 public class Bezirke extends Controller {
 
     public static void listOffene(String betreuer, String action) {
-
+        UseStat usestat = new UseStat(Security.connected(), "Bezirke", "listOffene", "show");
         models.touren.OffeneBezirke offenebezirke = new models.touren.OffeneBezirke();
 
         models.Betreuers bl = new models.Betreuers();

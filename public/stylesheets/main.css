@@ -45,17 +45,27 @@ div.functions h3 {
     font-size: medium;
 }
 
+ul {
+    list-style-type: square;
+}
+
 div.functions ul {
     font-size: medium;
     margin-top: .2em;
     margin-bottom: .4em;
-    list-style-type: square;
 }
 
 table td.number {
     text-align: right;
 }
 
+table td.bold {
+    font-weight: bold;
+}
+
 table tr.einstellungsverbot {
     background-color: red;
 }
+
+#container { padding: 0.4em; position: relative; }
+#container h3 { margin: 0; padding: 0.4em; text-align: center; }

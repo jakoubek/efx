@@ -11,6 +11,7 @@ import models.*;
 public class Application extends Controller {
 
     public static void index() {
+        UseStat usestat = new UseStat(Security.connected(), "Application", "index", "show");
         render();
     }
 
@@ -23,14 +24,14 @@ public class Application extends Controller {
     }
 
     public static void funktionen() {
-
+        UseStat usestat = new UseStat(Security.connected(), "Application", "funktionen", "show");
         List<Funktion> funktionen = Funktion.findAll();
         render(funktionen);
 
     }
 
     public static void dbversion() {
-
+        UseStat usestat = new UseStat(Security.connected(), "Application", "dbversion", "show");
     Connection conn;
     Statement stmt;
     ResultSet rs;
@@ -62,7 +63,7 @@ public class Application extends Controller {
 
 
     public static void connectedUsers() {
-
+        UseStat usestat = new UseStat(Security.connected(), "Application", "connectedUsers", "show");
     Connection conn;
     Statement stmt;
     ResultSet rs;

@@ -9,12 +9,24 @@
 
 <script>
     $(function() {
+        $( "#tabs" ).tabs();
+    });
+    $(function() {
         $( "#accordion" ).accordion({ autoHeight: false });
     });
 </script>
 
 <h1>&{'app.title'}</h1>
 
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Alle</a></li>
+        <li><a href="#tabs-2">Meine letzten</a></li>
+        <li><a href="#tabs-3">Meine häufigsten</a></li>
+        <li><a href="#tabs-4">Alle häufigsten</a></li>
+    </ul>
+
+<div id="tabs-1">
 <div class="functions" id="accordion">
     <h3><a href="#">Zusteller</a></h3>
     <div>
@@ -28,7 +40,7 @@
             <li>Zusteller mit aktueller Bankverbindung</li>
             <li>Zusteller mit Datumseinträgen</li>
             <li>Zusteller mit Eintritt/Austritt im Zeitraum</li>
-            <li>Zustellerdaten-Testlauf</li>
+            <li><a href="@{ZustellerdatenTestlauf.index()}">Zustellerdaten-Testlauf</a></li>
             <li>Zustellerliste</li>
         </ul>
     </div>
@@ -81,4 +93,51 @@
         </ul>
     </div>
 </div>
+</div>
 
+    <div id="tabs-2">
+
+        <div id="container" class="ui-widget-content ui-corner-all">
+            <h3 class="ui-widget-header ui-corner-all">Die zuletzt von mir aufgerufenen Funktionen</h3>
+
+            <ul>
+                <li>eins</li>
+                <li>zwei</li>
+                <li>drei</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div id="tabs-3">
+
+        <div id="container" class="ui-widget-content ui-corner-all">
+            <h3 class="ui-widget-header ui-corner-all">Die am häufigsten von mir aufgerufenen Funktionen</h3>
+
+            <ul>
+                <li>eins</li>
+                <li>zwei</li>
+                <li>drei</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div id="tabs-4">
+
+        <div id="container" class="ui-widget-content ui-corner-all">
+            <h3 class="ui-widget-header ui-corner-all">Von allen Benutzern am häufigsten aufgerufenen Funktionen</h3>
+
+            <ul>
+                <li>eins</li>
+                <li>zwei</li>
+                <li>drei</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>

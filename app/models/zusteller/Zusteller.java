@@ -8,6 +8,9 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.util.Date;
 
+import models.zuordnung.Zuordnung;
+import models.zuordnung.Zuordnung_Suche;
+
 public class Zusteller {
 
     public int id;
@@ -27,6 +30,8 @@ public class Zusteller {
     public Date austritt;
     public String urlaubsanspruch;
     public String einstellungsverbot;
+    public ArrayList<Zuordnung> zuordnungen;
+    public ArrayList<TestlaufEintrag> probleme;
     private Connection conn;
 
     public Zusteller(int id) {
@@ -36,7 +41,7 @@ public class Zusteller {
         try {
 
             conn = play.db.DB.getConnection();
-            PreparedStatement stmt = conn.prepareStatement("SELECT ze.farbcode, ze.adrinfokey, ba.firmenkey1, ba.nachname, ba.vorname, TRIM(ba.kontroll_strasse) || ' ' || ba.hsnr || ba.hsnrzusatz, ba.kontroll_plz, ba.kontroll_ort, ba.kontroll_ortsteil, ze.urlaub_anspruch, ze.einstellungsverbot, GiveGeburtstag(ze.adrinfokey), ze.aktiv, (CASE ba.set_adressart WHEN '19993K020834.0154wawi4:102:55:113' THEN 'M' WHEN '19993K020834.0155wawi4:102:55:113' THEN 'W' ELSE '?' END), (SELECT firmenkey1 FROM basisadresse WHERE adrinfokey = ze.betreuerkey), mea.eintritt, mea.austritt FROM zusteller_erweiter AS ze INNER JOIN basisadresse AS ba ON ba.adrinfokey = ze.adrinfokey LEFT OUTER JOIN mitarbeitereintrittaustritt AS mea ON mea.adrinfokey = ze.adrinfokey AND mea.id = GiveId4Mitarbeitereintrittaustritt(ze.adrinfokey, CURRENT DATE) WHERE ze.farbcode = ?");
+            PreparedStatement stmt = conn.prepareStatement("SELECT ze.farbcode, ze.adrinfokey, ba.firmenkey1, ba.nachname, ba.vorname, TRIM(ba.kontroll_strasse) || ' ' || ba.hsnr || ba.hsnrzusatz, ba.kontroll_plz, ba.kontroll_ort, ba.kontroll_ortsteil, ze.urlaub_anspruch, ze.einstellungsverbot, GiveGeburtstag(ze.adrinfokey), ze.aktiv, (CASE ba.set_adressart WHEN '19993K020834.0154wawi4:102:55:113' THEN 'M' WHEN '19993K020834.0155wawi4:102:55:113' THEN 'W' ELSE '?' END), (SELECT firmenkey1 FROM basisadresse WHERE adrinfokey = ze.betreuerkey), mea.eintritt, mea.austritt FROM zusteller_erweiter AS ze INNER JOIN basisadresse AS ba ON ba.adrinfokey = ze.adrinfokey LEFT OUTER JOIN mitarbeitereintrittaustritt AS mea ON mea.adrinfokey = ze.adrinfokey AND mea.id = GiveId4MitarbeitereintrittaustrittLast(ze.adrinfokey) WHERE ze.farbcode = ?");
             stmt.setInt(1, this.id);
             rs = stmt.executeQuery();
 
@@ -58,6 +63,10 @@ public class Zusteller {
                 this.betreuer = rs.getString(15);
                 this.eintritt = rs.getDate(16);
                 this.austritt = rs.getDate(17);
+                Zuordnung_Suche zs = new Zuordnung_Suche();
+                this.zuordnungen = zs.ZuordnungenFuerZusteller(this.adrinfokey);
+                Testlauf tl = new Testlauf();
+                this.probleme = tl.EintraegeFuerZusteller(this.adrinfokey);
             }
 
             rs.close();

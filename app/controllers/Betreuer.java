@@ -13,7 +13,7 @@ import models.*;
 public class Betreuer extends Controller {
 
     public static void list() {
-
+        UseStat usestat = new UseStat(Security.connected(), "Betreuer", "list", "show");
         models.Betreuers bl = new models.Betreuers();
 
         ArrayList<models.Betreuer> betreuerliste = Cache.get("betreuerliste", ArrayList.class);
@@ -27,7 +27,7 @@ public class Betreuer extends Controller {
     }
 
     public static void list2() {
-
+        UseStat usestat = new UseStat(Security.connected(), "Betreuer", "list2", "show");
     Connection conn;
     Statement stmt;
     ResultSet rs;

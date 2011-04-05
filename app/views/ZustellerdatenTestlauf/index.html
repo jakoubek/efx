@@ -1,0 +1,41 @@
+#{extends 'main.html' /}
+#{set title:'Zustellerdaten-Testlauf' /}
+
+<h1>#{get 'title' /}</h1>
+
+#{form @ZustellerdatenTestlauf.list(), class:'web'}
+<fieldset>
+    <legend>Parameter</legend>
+#{field 'betreuer'}
+<label>&{field.name}</label>
+#{select 'betreuer', items:betreuerliste, valueProperty:'userid', value:betreuer , labelProperty:'fullname' /}
+#{/field}
+
+<input type="submit" id="show" value="Anzeigen" />
+
+</fieldset>
+#{/form}
+
+#{if eintraege}
+
+<table border="1">
+    <tr>
+        <th>Zusteller</th>
+        <th>Problem</th>
+    </tr>
+    #{list items:eintraege, as:'e'}
+    <tr>
+        <td><a href="@{Zusteller.getZusteller(e.zustellerid)}" title="Details zum Zusteller anzeigen">${e.zustellermatchcode}</a></td>
+        #{if e.abrechnungsrelevant == 'Y'}
+        <td class="bold">${e.problembezeichnung}</td>
+        #{/if}
+        #{else}
+        <td>${e.problembezeichnung}</td>
+        #{/else}
+    </tr>
+    #{/list}
+</table>
+
+<span>${eintraege.size} Einträge</span>
+
+#{/if}

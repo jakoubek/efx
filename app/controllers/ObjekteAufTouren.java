@@ -8,6 +8,7 @@ import models.*;
 public class ObjekteAufTouren extends Controller {
 
     public static void index() {
+        UseStat usestat = new UseStat(Security.connected(), "ObjekteAufTouren", "index", "show");
         render();
     }
 

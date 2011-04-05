@@ -4,21 +4,22 @@
 
 # Home page
 
-*       /                       module:secure
-GET     /                       Application.index
-GET     /login                  Application.login
-GET     /logout                 Application.logout
-GET     /funktionen             Application.funktionen
-GET     /dbversion              Application.dbversion
-GET     /connected              Application.connectedUsers
-GET     /betreuer               Betreuer.list
-GET     /offene-bezirke         Bezirke.listOffene
-GET     /objekte-auf-touren     ObjekteAufTouren.index
-GET     /hhz-nach-plz           HaushaltszahlenNachPLZ.index
-GET     /zusteller/             Zusteller.index
-GET     /zusteller/suche        Zusteller.suche
-GET     /zusteller/{id}         Zusteller.getZusteller
-
+*       /                           module:secure
+GET     /                           Application.index
+GET     /login                      Application.login
+GET     /logout                     Application.logout
+GET     /funktionen                 Application.funktionen
+GET     /dbversion                  Application.dbversion
+GET     /connected                  Application.connectedUsers
+GET     /betreuer                   Betreuer.list
+GET     /offene-bezirke             Bezirke.listOffene
+GET     /objekte-auf-touren         ObjekteAufTouren.index
+GET     /hhz-nach-plz               HaushaltszahlenNachPLZ.index
+GET     /zusteller/                 Zusteller.index
+GET     /zusteller/suche            Zusteller.suche
+GET     /zusteller/{id}             Zusteller.getZusteller
+GET     /zustellerdaten-testlauf    ZustellerdatenTestlauf.index
+GET     /zustellerdaten-testlauf/list    ZustellerdatenTestlauf.list
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

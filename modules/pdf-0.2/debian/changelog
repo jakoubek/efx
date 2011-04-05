@@ -1,0 +1,25 @@
+play-1.1-pdf-module-0.4 (0.4) maverick; urgency=low
+
+  * Add support for multiple PDF documents at a time
+
+ -- Stephane Epardaud <stephane@epardaud.fr>  Mon, 07 Feb 2011 16:23:14 +0100
+
+play-1.1-pdf-module-0.3 (0.3) maverick; urgency=low
+
+  * Fixed validation that hung when the xml parser tried to get a DTD from the W3C site
+  * Fixed https URLs (should be looked up by Play!)
+  * Fixed IE bug when using https, content-disposition and cache headers
+
+ -- Stephane Epardaud <stephane@epardaud.fr>  Wed, 10 Nov 2010 11:02:26 +0100
+
+play-1.1-pdf-module-0.2 (0.2) maverick; urgency=low
+
+  * Fixed links, image references and encoding of html entities.
+
+ -- Stephane Epardaud <stephane@epardaud.fr>  Fri, 08 Oct 2010 09:34:02 +0200
+
+play-1.1-pdf-module-0.1 (0.1) UNRELEASED; urgency=low
+
+  * Initial release
+
+ -- Stephane Epardaud <stephane@epardaud.fr>  Wed, 06 Oct 2010 15:37:22 +0200

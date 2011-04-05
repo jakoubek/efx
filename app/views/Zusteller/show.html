@@ -21,6 +21,9 @@ Zusteller ${zusteller} anzeigen
     <ul>
         <li><a href="#tabs-1">Zusteller</a></li>
         <li><a href="#tabs-2">Weitere Angaben</a></li>
+        <li><a href="#tabs-3">Beschäftigungsverhältnisse</a></li>
+        <li><a href="#tabs-4">Zuordnungen</a></li>
+        <li><a href="#tabs-5">Datenprobleme</a></li>
     </ul>
 
     <div id="tabs-1">
@@ -77,8 +80,56 @@ Zusteller ${zusteller} anzeigen
         </table>
     </div>
 
+    <div id="tabs-3">
+        (Infos zu Beschäftigungsverhältnissen)
+    </div>
+
+    <div id="tabs-4">
+        <table border="1">
+            <tr>
+                <th>Bezirk</th>
+                <th>Satztyp</th>
+                <th>von</th>
+                <th>bis</th>
+            </tr>
+            #{list items:zusteller.zuordnungen, as:'zuordnung'}
+            <tr>
+                <td>${zuordnung.bezirk}</td>
+                <td>${zuordnung.satztyp}</td>
+                <td>${zuordnung.gueltigab}</td>
+                <td>${zuordnung.gueltigbis}</td>
+            </tr>
+            #{/list}
+        </table>
+        ${zusteller.zuordnungen.size} Einträge
 
     </div>
+
+
+    <div id="tabs-5">
+
+        #{if zusteller.probleme}
+        <table border="1">
+            <tr>
+                <th>Problem</th>
+            </tr>
+            #{list items:zusteller.probleme, as:'p'}
+            <tr>
+                #{if p.abrechnungsrelevant == 'Y'}
+                <td class="bold">${p.problembezeichnung}</td>
+                #{/if}
+                #{else}
+                <td>${p.problembezeichnung}</td>
+                #{/else}
+            </tr>
+            #{/list}
+        </table>
+        #{/if}
+        #{tablecount count:zusteller.probleme.size /}
+
+    </div>
+
+</div>
 
 
 
