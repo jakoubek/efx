@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ZustellerdatenTestlauf extends Controller {
 
     public static void index() {
-        UseStat usestat = new UseStat(Security.connected(), "ZustellerdatenTestlauf", "index", "show");
+        UseStat usestat = new UseStat(Security.connected(), "show", 17);
 
         models.Betreuers bl = new models.Betreuers();
         ArrayList<models.Betreuer> betreuerliste = Cache.get("betreuerliste", ArrayList.class);
@@ -30,7 +30,7 @@ public class ZustellerdatenTestlauf extends Controller {
     }
 
     public static void list(String betreuer) {
-        UseStat usestat = new UseStat(Security.connected(), "ZustellerdatenTestlauf", "list", "show");
+        UseStat usestat = new UseStat(Security.connected(), "show", 18);
 
         models.Betreuers bl = new models.Betreuers();
         ArrayList<models.Betreuer> betreuerliste = Cache.get("betreuerliste", ArrayList.class);

@@ -104,9 +104,9 @@
             <h3 class="ui-widget-header ui-corner-all">Die zuletzt von mir aufgerufenen Funktionen</h3>
 
             <ul>
-                <li>eins</li>
-                <li>zwei</li>
-                <li>drei</li>
+                #{list items:myMru, as:'f'}
+                <li>${f}</li>
+                #{/list}
             </ul>
 
         </div>

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class HaushaltszahlenNachPLZ extends Controller {
 
     public static void index(String plz) {
-        UseStat usestat = new UseStat(Security.connected(), "HaushaltszahlenNachPLZ", "index", "show");
+        UseStat usestat = new UseStat(Security.connected(), "show", 12);
         models.brd.HaushaltszahlenNachPLZ hhznachplz = new models.brd.HaushaltszahlenNachPLZ();
         ArrayList<HaushaltszahlenNachPLZ_Entry> haushaltszahlen = hhznachplz.liste(plz);
         render(plz, haushaltszahlen);

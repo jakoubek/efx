@@ -7,9 +7,14 @@ import play.db.jpa.*;
 
 @Entity
 @Table(name = "USREFXFUNC")
-public class Funktion extends Model {
- 
+public class Function extends Model {
+
     public String funcname;
     public String controllerName;
+    public String actionName;
+
+    public String toString() {
+        return this.funcname;
+    }
 
 }

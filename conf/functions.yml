@@ -1,0 +1,90 @@
+Function(1):
+    funcname: Startseite
+    controllerName: Application
+    actionName: index
+
+Function(2):
+    funcname: Funktionsübersicht
+    controllerName: Application
+    actionName: funktionen
+
+Function(3):
+    funcname: Datenbankversion
+    controllerName: Application
+    actionName: dbversion
+
+Function(4):
+    funcname: Benutzerprofil
+    controllerName: Application
+    actionName: profil
+
+Function(5):
+    funcname: Liste verbundener Benutzer
+    controllerName: Application
+    actionName: connectedUsers
+
+Function(6):
+    funcname: Benutzersessions
+    controllerName: Application
+    actionName: sessions
+
+Function(7):
+    funcname: aktive Benutzersessions
+    controllerName: Application
+    actionName: activeSessions
+
+Function(8):
+    funcname: Betreuerliste
+    controllerName: Betreuer
+    actionName: list
+
+Function(9):
+    funcname: Liste offener Bezirke
+    controllerName: Bezirke
+    actionName: listOffene
+
+Function(10):
+    funcname: Ersatzzustellerliste
+    controllerName: Ersatzzusteller
+    actionName: index
+
+Function(11):
+    funcname: Ersatzzustellerliste ohne Bezirke
+    controllerName: Ersatzzusteller
+    actionName: ohneBezirk
+
+Function(12):
+    funcname: Haushaltszahlen nach PLZ
+    controllerName: HaushaltszahlenNachPLZ
+    actionName: index
+
+Function(13):
+    funcname: Objekte auf Touren
+    controllerName: ObjekteAufTouren
+    actionName: index
+
+Function(14):
+    funcname: Zusteller
+    controllerName: Zusteller
+    actionName: index
+
+Function(15):
+    funcname: Zusteller anzeigen
+    controllerName: Zusteller
+    actionName: getZusteller
+
+Function(16):
+    funcname: Zusteller suchen
+    controllerName: Zusteller
+    actionName: suche
+
+Function(17):
+    funcname: Zustellerdatentestlauf - Einstieg
+    controllerName: ZustellerdatenTestlauf
+    actionName: index
+
+Function(18):
+    funcname: Zustellerdatentestlauf - Anzeige für Betreuer
+    controllerName: ZustellerdatenTestlauf
+    actionName: list
+

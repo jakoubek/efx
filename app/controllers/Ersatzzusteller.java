@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Ersatzzusteller extends Controller {
 
     public static void index() {
-        UseStat usestat = new UseStat(Security.connected(), "Ersatzzusteller", "index", "show");
+        UseStat usestat = new UseStat(Security.connected(), "show", "Ersatzzusteller", "index");
         ErsatzzustellerSuche ez = new models.zusteller.ErsatzzustellerSuche();
         ArrayList<models.zusteller.Ersatzzusteller> ersatzzustellerliste = ez.liste();
         String title = "Liste Ersatzzusteller mit Bezirk";
@@ -19,7 +19,7 @@ public class Ersatzzusteller extends Controller {
     }
 
     public static void ohneBezirk() {
-        UseStat usestat = new UseStat(Security.connected(), "Ersatzzusteller", "ohneBezirk", "show");
+        UseStat usestat = new UseStat(Security.connected(), "show", "Ersatzzusteller", "ohneBezirk");
         ErsatzzustellerSuche ez = new models.zusteller.ErsatzzustellerSuche();
         ArrayList<models.zusteller.Ersatzzusteller> ersatzzustellerliste = ez.ohneBezirk();
         String title = "Liste Ersatzzusteller ohne Bezirk";

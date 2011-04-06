@@ -11,8 +11,11 @@ import models.*;
 public class Application extends Controller {
 
     public static void index() {
-        UseStat usestat = new UseStat(Security.connected(), "Application", "index", "show");
-        render();
+        UseStat usestat = new UseStat(Security.connected(), "show", "Application", "index");
+        List<Function> myMru = UseStatHandler.getMyMru(Security.connected());
+        //UseStat u = new UseStat();
+        //List<Function> myMru = UseStat.getMyMru("bossmanna");
+        render(myMru);
     }
 
     public static void login() {
@@ -24,15 +27,15 @@ public class Application extends Controller {
     }
 
     public static void funktionen() {
-        UseStat usestat = new UseStat(Security.connected(), "Application", "funktionen", "show");
-        List<Funktion> funktionen = Funktion.findAll();
+        UseStat usestat = new UseStat(Security.connected(), "show", "Application", "funktionen");
+        List<Function> funktionen = Function.findAll();
         render(funktionen);
 
     }
 
     public static void dbversion() {
-        UseStat usestat = new UseStat(Security.connected(), "Application", "dbversion", "show");
-    Connection conn;
+        UseStat usestat = new UseStat(Security.connected(), "show", "Application", "dbversion");
+        Connection conn;
     Statement stmt;
     ResultSet rs;
     Version versionObject = new Version();
@@ -61,13 +64,14 @@ public class Application extends Controller {
     }
 
     public static void profil() {
-        UseStat usestat = new UseStat(Security.connected(), "Application", "profil", "show");
+        UseStat usestat = new UseStat(Security.connected(), "show", "Application", "profil");
         User me = new User(Security.connected());
         render(me);
     }
 
     public static void connectedUsers() {
-        UseStat usestat = new UseStat(Security.connected(), "Application", "connectedUsers", "show");
+        UseStat usestat = new UseStat(Security.connected(), "show", "Application", "connectedUsers");
+
     Connection conn;
     Statement stmt;
     ResultSet rs;
@@ -101,13 +105,13 @@ public class Application extends Controller {
     }
 
     public static void sessions() {
-        UseStat usestat = new UseStat(Security.connected(), "Application", "sessions", "show");
+        UseStat usestat = new UseStat(Security.connected(), "show", "Application", "sessions");
         List<efxSession> sessions = efxSession.findAll();
         render(sessions);
     }
 
     public static void activeSessions() {
-        UseStat usestat = new UseStat(Security.connected(), "Application", "activeSessions", "show");
+        UseStat usestat = new UseStat(Security.connected(), "show", "Application", "activeSessions");
         List<efxSession> sessions = efxSession.find("logoutTime is null").fetch();
         renderTemplate("Application/sessions.html", sessions);
     }
