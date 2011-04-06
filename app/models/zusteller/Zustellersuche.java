@@ -22,9 +22,10 @@ public class Zustellersuche {
 
         try {
             conn = play.db.DB.getConnection();
-            PreparedStatement stmt = conn.prepareStatement("SELECT ze.farbcode, ze.adrinfokey, ba.nachname, ba.vorname, TRIM(ba.kontroll_strasse) || ' ' || ba.hsnr || ba.hsnrzusatz, ba.kontroll_plz, ba.kontroll_ort, ba.kontroll_ortsteil FROM zusteller_erweiter AS ze INNER JOIN basisadresse AS ba ON ba.adrinfokey = ze.adrinfokey WHERE (ba.nachname LIKE ? OR ba.vorname LIKE ?) ORDER BY ba.nachname, ba.vorname");
+            PreparedStatement stmt = conn.prepareStatement("SELECT ze.farbcode, ze.adrinfokey, ba.nachname, ba.vorname, TRIM(ba.kontroll_strasse) || ' ' || ba.hsnr || ba.hsnrzusatz, ba.kontroll_plz, ba.kontroll_ort, ba.kontroll_ortsteil FROM zusteller_erweiter AS ze INNER JOIN basisadresse AS ba ON ba.adrinfokey = ze.adrinfokey WHERE (ba.nachname LIKE ? OR ba.vorname LIKE ? OR ba.firmenkey1 LIKE ?) ORDER BY ba.nachname, ba.vorname");
             stmt.setString(1, this.suchstring);
             stmt.setString(2, this.suchstring);
+            stmt.setString(3, this.suchstring);
             rs = stmt.executeQuery();
 
             while ( rs.next() ){
