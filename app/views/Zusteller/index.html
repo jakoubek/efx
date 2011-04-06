@@ -18,11 +18,11 @@
 
 <table border="1">
     <tr>
+        <th><span title="Status: Aktiv/Inaktiv/Einstellungsverbot">S</span></th>
         <th>PersonalNr</th>
         <th>Zusteller</th>
-        <th>Geschlecht</th>
+        <th><span title="Geschlecht">G</span></th>
         <th>Wohnort</th>
-        <th>Aktiv</th>
         <th>Geburtsdatum</th>
         <th>Betreuer</th>
         <th>Eintritt</th>
@@ -36,11 +36,34 @@
     #{else}
     <tr>
     #{/else}
+
+        #{if zusteller.einstellungsverbot == 'Y'}
+        <td><img src="@{'public/images/einstellungsverbot.png'}" title="Einstellungsverbot" height="16" width="16"/></td>
+        #{/if}
+        #{elseif zusteller.aktiv == 'Y'}
+        <td><img src="@{'public/images/active.png'}" title="aktiv" height="16" width="16"/></td>
+        #{/elseif}
+        #{elseif zusteller.aktiv == 'N'}
+        <td><img src="@{'public/images/inactive.png'}" title="inaktiv" height="16" width="16"/></td>
+        #{/elseif}
+
         <td>${zusteller.personalnr}</td>
         <td><a href="@{Zusteller.getZusteller(zusteller.id)}" title="Details zum Zusteller anzeigen">${zusteller}</a></td>
-        <td>${zusteller.geschlecht}</td>
+
+        #{if zusteller.geschlecht == 'M'}
+        <td><img src="@{'public/images/male.png'}" title="männlich" height="16" width="16"/></td>
+        #{/if}
+        #{elseif zusteller.geschlecht == 'W'}
+        <td><img src="@{'public/images/female.png'}" title="weiblich" height="16" width="16"/></td>
+        #{/elseif}
+        #{else}
+        <td><img src="@{'public/images/not-known.png'}" title="unbekannt" height="16" width="16"/></td>
+        #{/else}
+
         <td>${zusteller.hauptort}</td>
-        <td>${zusteller.aktiv}</td>
+
+
+
         <td>${zusteller.geburtsdatum}</td>
         <td>${zusteller.betreuer}</td>
         <td>${zusteller.eintritt}</td>
