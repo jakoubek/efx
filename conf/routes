@@ -20,6 +20,8 @@ GET     /zusteller/suche            Zusteller.suche
 GET     /zusteller/{id}             Zusteller.getZusteller
 GET     /zustellerdaten-testlauf    ZustellerdatenTestlauf.index
 GET     /zustellerdaten-testlauf/list    ZustellerdatenTestlauf.list
+GET     /ersatzzusteller            Ersatzzusteller.index
+GET     /ersatzzusteller/ohne-bezirk            Ersatzzusteller.ohneBezirk
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

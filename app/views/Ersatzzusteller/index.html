@@ -1,0 +1,45 @@
+#{extends 'main.html' /}
+#{set 'title'}
+        ${title}
+#{/set}
+
+<h1>#{get 'title' /}</h1>
+
+#{if ersatzzustellerliste}
+
+<table border="1">
+    <tr>
+        <th>Zusteller</th>
+        <th><span title="Geschlecht">G</span></th>
+        <th>Wohnort</th>
+        <th>Ortsteil</th>
+        <th>Geburtsdatum</th>
+        <th>Bezirk</th>
+    </tr>
+    #{list items:ersatzzustellerliste, as:'zusteller'}
+    <tr>
+
+        <td>${zusteller}</td>
+
+        #{if zusteller.geschlecht == 'M'}
+        <td><img src="@{'public/images/male.png'}" title="männlich" height="16" width="16"/></td>
+        #{/if}
+        #{elseif zusteller.geschlecht == 'W'}
+        <td><img src="@{'public/images/female.png'}" title="weiblich" height="16" width="16"/></td>
+        #{/elseif}
+        #{else}
+        <td><img src="@{'public/images/not-known.png'}" title="unbekannt" height="16" width="16"/></td>
+        #{/else}
+
+        <td>${zusteller.hauptort}</td>
+        <td>${zusteller.ortsteil}</td>
+        <td>${zusteller.geburtsdatum}</td>
+        <td>${zusteller.bezirk}</td>
+    </tr>
+    #{/list}
+</table>
+
+        #{tablecount count:ersatzzustellerliste.size /}
+
+#{/if}
+
