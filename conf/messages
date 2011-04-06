@@ -9,8 +9,8 @@ secure.remember=Meine Anmeldedaten merken
 secure.signin=Anmelden
 secure.logout=Sie haben sich abgemeldet.
 session.logout=Abmelden
-session.logout.tooltip=Melden Sie sich von der Anwendung ab.
-session.loggedInAs=Angemeldet als: %s
+session.logout.tooltip=Ihr Benutzerprofil
+session.loggedInAs=Angemeldet als:
 session.username.tooltip=Ihr ZSP-Benutzername
 session.loggedInAsPrint=Ausgedruckt von %s
 

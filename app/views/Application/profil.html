@@ -1,0 +1,9 @@
+#{extends 'main.html' /}
+#{set title:'Mein Benutzerprofil' /}
+
+<h1>#{get 'title' /}</h1>
+
+<ul>
+    <li>Benutzername: ${me.userid}</li>
+    <li>E-Mail-Adresse: ${me.emailadresse}</li>
+</ul>

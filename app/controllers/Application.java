@@ -60,7 +60,11 @@ public class Application extends Controller {
         render(versionObject);
     }
 
-
+    public static void profil() {
+        UseStat usestat = new UseStat(Security.connected(), "Application", "profil", "show");
+        User me = new User(Security.connected());
+        render(me);
+    }
 
     public static void connectedUsers() {
         UseStat usestat = new UseStat(Security.connected(), "Application", "connectedUsers", "show");
@@ -94,6 +98,18 @@ public class Application extends Controller {
     }   
 
         render(users);
+    }
+
+    public static void sessions() {
+        UseStat usestat = new UseStat(Security.connected(), "Application", "sessions", "show");
+        List<efxSession> sessions = efxSession.findAll();
+        render(sessions);
+    }
+
+    public static void activeSessions() {
+        UseStat usestat = new UseStat(Security.connected(), "Application", "activeSessions", "show");
+        List<efxSession> sessions = efxSession.find("logoutTime is null").fetch();
+        renderTemplate("Application/sessions.html", sessions);
     }
 
 }

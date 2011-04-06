@@ -1,0 +1,29 @@
+#{extends 'main.html' /}
+#{set title:'Benutzersitzungen' /}
+
+<h1>#{get 'title' /}</h1>
+
+<p>
+<a href="@{Application.sessions()}">alle</a> | <a href="@{Application.activeSessions()}">nur aktive</a>
+</p>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Benutzername</th>
+        <th>Login</th>
+        <th>Logout</th>
+        <th>IP-Adresse</th>
+        <th>Useragent</th>
+    </tr>
+#{list items:sessions, as:'s'}
+<tr>
+    <td>${s.id}</td>
+    <td>${s.userid}</td>
+    <td>${s.loginTime}</td>
+    <td>${s.logoutTime}</td>
+    <td>${s.nodeAddress}</td>
+    <td>${s.userAgent}</td>
+</tr>
+#{/list}
+</table>

@@ -10,6 +10,9 @@ GET     /login                      Application.login
 GET     /logout                     Application.logout
 GET     /funktionen                 Application.funktionen
 GET     /dbversion                  Application.dbversion
+GET     /profil                     Application.profil
+GET     /sessions                   Application.sessions
+GET     /sessions/current           Application.activeSessions
 GET     /connected                  Application.connectedUsers
 GET     /betreuer                   Betreuer.list
 GET     /offene-bezirke             Bezirke.listOffene

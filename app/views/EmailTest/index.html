@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+#{set title:'Test des E-Mail-Versands' /}
+
+<h1>#{get 'title' /}</h1>
+
+#{form @EmailTest.sendmail() }
+
+<p>
+  <label for="recipientName">Empfängername</label>
+  <input type="text" id="recipientName" name="recipientName" value="" /">
+</p>
+
+<p>
+  <label for="recipientAddress">E-Mail-Adresse</label>
+  <input type="text" id="recipientAddress" name="recipientAddress" value="" /">
+</p>
+
+<p>
+    <label for="subject">Betreff</label>
+    <input type="text" id="subject" name="subject" value="" /">
+</p>
+
+<input type="submit" id="show" value="Absenden" />
+
+#{/form}

@@ -20,7 +20,8 @@
 
     <span class="right web">
     #{if session.username}
-            <span class="username" title="&{'session.username.tooltip'}">&{'session.loggedInAs', session.username}</span> |
+        &{'session.loggedInAs'}
+        <a href="@{Application.profil()}" title="&{'session.username.tooltip'}">${session.username}</a> |
             <a href="@{Secure.logout()}" title="&{'session.logout.tooltip'}">&{'session.logout'}</a>
 
     #{/if}
