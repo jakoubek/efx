@@ -21,9 +21,9 @@ public class UseStat extends Model {
 
         this.userid = userid;
         this.timestamp = new Date();
-        this.function = function.getId();
+       // this.function = function.getId();
         this.viewmode = viewmode;
-        this.save();
+//        this.save();
     }
 
     public UseStat(String userid, String viewmode, long functionId) {
