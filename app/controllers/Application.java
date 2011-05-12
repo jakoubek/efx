@@ -12,10 +12,11 @@ public class Application extends Controller {
 
     public static void index() {
         UseStat usestat = new UseStat(Security.connected(), "show", "Application", "index");
+        List<Function> funktionen = new models.FunctionList().funktionen();
         List<Function> myMru = UseStatHandler.getMyMru(Security.connected());
         //UseStat u = new UseStat();
         //List<Function> myMru = UseStat.getMyMru("bossmanna");
-        render(myMru);
+        render(funktionen, myMru);
     }
 
     public static void login() {
@@ -28,13 +29,19 @@ public class Application extends Controller {
 
     public static void funktionen() {
         UseStat usestat = new UseStat(Security.connected(), "show", "Application", "funktionen");
-        List<Function> funktionen = Function.findAll();
+        List<Function> funktionen = new models.FunctionList().funktionen();
         render(funktionen);
 
     }
 
+    public static void callFunction(Long functionid) {
+        Function function = Function.findById(functionid);
+        redirect(function.getRoute());
+    }
+
     public static void dbversion() {
         UseStat usestat = new UseStat(Security.connected(), "show", "Application", "dbversion");
+        List<Function> funktionen = new models.FunctionList().funktionen();
         Connection conn;
     Statement stmt;
     ResultSet rs;
@@ -60,17 +67,19 @@ public class Application extends Controller {
         System.exit(1);
     }   
 
-        render(versionObject);
+        render(funktionen, versionObject);
     }
 
     public static void profil() {
         UseStat usestat = new UseStat(Security.connected(), "show", "Application", "profil");
+        List<Function> funktionen = new models.FunctionList().funktionen();
         User me = new User(Security.connected());
-        render(me);
+        render(funktionen, me);
     }
 
     public static void connectedUsers() {
         UseStat usestat = new UseStat(Security.connected(), "show", "Application", "connectedUsers");
+        List<Function> funktionen = new models.FunctionList().funktionen();
 
     Connection conn;
     Statement stmt;
@@ -101,19 +110,21 @@ public class Application extends Controller {
         System.exit(1);
     }   
 
-        render(users);
+        render(funktionen, users);
     }
 
     public static void sessions() {
         UseStat usestat = new UseStat(Security.connected(), "show", "Application", "sessions");
+        List<Function> funktionen = new models.FunctionList().funktionen();
         List<efxSession> sessions = efxSession.findAll();
-        render(sessions);
+        render(funktionen, sessions);
     }
 
     public static void activeSessions() {
         UseStat usestat = new UseStat(Security.connected(), "show", "Application", "activeSessions");
+        List<Function> funktionen = new models.FunctionList().funktionen();
         List<efxSession> sessions = efxSession.find("logoutTime is null").fetch();
-        renderTemplate("Application/sessions.html", sessions);
+        renderTemplate("Application/sessions.html", funktionen, sessions);
     }
 
 }

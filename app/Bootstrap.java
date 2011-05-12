@@ -8,8 +8,9 @@ import models.*;
 public class Bootstrap extends Job {
 
     public void doJob() {
-
-        //Fixtures.load("functions.yml");
+	if (Function.count() == 0) {
+        	Fixtures.load("functions.yml");
+	}
     }
 
 }

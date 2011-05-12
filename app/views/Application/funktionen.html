@@ -19,7 +19,10 @@ Liste aller verfügbaren Funktionen:
 <td>${funktion.id}</td>
 <td>${funktion.funcname}</td>
 <td>${funktion.controllerName}</td>
-<td><a href="@{Application.index()}">Link</a></td>
+    %{
+    route = funktion.getRoute();
+    }%
+<td><a href="${route}">${route}</a></td>
 </tr>
 #{/list}
 </table>

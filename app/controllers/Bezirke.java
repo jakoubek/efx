@@ -14,12 +14,14 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.sql.Date;
+import java.util.List;
 
 @With(Secure.class)
 public class Bezirke extends Controller {
 
     public static void listOffene(String betreuer, String action) {
         UseStat usestat = new UseStat(Security.connected(), "show", "Application", "listOffene");
+        List<Function> funktionen = new models.FunctionList().funktionen();
         models.touren.OffeneBezirke offenebezirke = new models.touren.OffeneBezirke();
 
         models.Betreuers bl = new models.Betreuers();
@@ -37,7 +39,7 @@ public class Bezirke extends Controller {
             Bezirke.listOffene(user.userid, "");
         }
 
-        render(betreuerliste);
+        render(funktionen, betreuerliste);
 
     } else {
 
@@ -75,7 +77,7 @@ public class Bezirke extends Controller {
         if (action == "pdf") {
             renderPDF(betreuerliste, betreuer, aktionstage, bezirke);
         }
-            render(betreuerliste, betreuer, bezirke);
+            render(funktionen, betreuerliste, betreuer, bezirke);
         //renderPDF(betreuerliste, betreuer, aktionstage, bezirke);
         }
 

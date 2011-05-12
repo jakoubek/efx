@@ -13,10 +13,20 @@
 </head>
 <body>
 <div id="header">
+
+    #{if funktionen}
+    <span class="web">
+        #{form @Application.callFunction(), class:'web'}
+#{select 'functionid', items:funktionen, valueProperty:'id', labelProperty:'funcname', class:'functioncaller' /}
+<input type="submit" id="show" value="Anzeigen" />
+#{/form}
+    </span>
+    #{/if}
+    #{else}
     <span class="web">
         <a href="@{Application.index}" title="&{'start.pagetitle.tooltip'}">&{'start.pagetitle'}</a>
     </span>
-
+    #{/else}
 
     <span class="right web">
     #{if session.username}
@@ -42,5 +52,14 @@
     <span class="print">@{Bezirke.listOffene()}</span>
     <span class="right">#{version /}</span>
 </div>
+
+<script>
+    $(".functioncaller1").select(function () {
+          this.form.submit();
+        })
+        .select();
+</script>
+
+
 </body>
 </html>

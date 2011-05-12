@@ -3,6 +3,7 @@ package models;
 import java.util.*;
 import javax.persistence.*;
 
+import play.mvc.*;
 import play.db.jpa.*;
 
 @Entity
@@ -15,6 +16,10 @@ public class Function extends Model {
 
     public String toString() {
         return this.funcname;
+    }
+
+    public String getRoute() {
+        return Router.reverse(this.controllerName + "." + this.actionName).url;
     }
 
 }

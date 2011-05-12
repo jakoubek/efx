@@ -14,6 +14,7 @@ GET     /profil                     Application.profil
 GET     /sessions                   Application.sessions
 GET     /sessions/current           Application.activeSessions
 GET     /connected                  Application.connectedUsers
+
 GET     /betreuer                   Betreuer.list
 GET     /offene-bezirke             Bezirke.listOffene
 GET     /objekte-auf-touren         ObjekteAufTouren.index

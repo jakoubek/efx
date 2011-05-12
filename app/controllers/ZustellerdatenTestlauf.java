@@ -12,12 +12,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 @With(Secure.class)
 public class ZustellerdatenTestlauf extends Controller {
 
     public static void index() {
         UseStat usestat = new UseStat(Security.connected(), "show", 17);
+        List<Function> funktionen = new models.FunctionList().funktionen();
 
         models.Betreuers bl = new models.Betreuers();
         ArrayList<models.Betreuer> betreuerliste = Cache.get("betreuerliste", ArrayList.class);
@@ -26,11 +28,12 @@ public class ZustellerdatenTestlauf extends Controller {
             Cache.set("betreuerliste", betreuerliste, "30mn");
         }
 
-        render(betreuerliste);
+        render(funktionen, betreuerliste);
     }
 
     public static void list(String betreuer) {
         UseStat usestat = new UseStat(Security.connected(), "show", 18);
+        List<Function> funktionen = new models.FunctionList().funktionen();
 
         models.Betreuers bl = new models.Betreuers();
         ArrayList<models.Betreuer> betreuerliste = Cache.get("betreuerliste", ArrayList.class);
@@ -86,7 +89,7 @@ public class ZustellerdatenTestlauf extends Controller {
             System.exit(1);
         }
 
-        renderTemplate("ZustellerdatenTestlauf/index.html", betreuerliste, eintraege);
+        renderTemplate("ZustellerdatenTestlauf/index.html", funktionen, betreuerliste, eintraege);
 
     }
 

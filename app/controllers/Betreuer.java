@@ -14,6 +14,7 @@ public class Betreuer extends Controller {
 
     public static void list() {
         UseStat usestat = new UseStat(Security.connected(), "show", "Betreuer", "list");
+        List<Function> funktionen = new models.FunctionList().funktionen();
 
         models.Betreuers bl = new models.Betreuers();
 
@@ -23,7 +24,7 @@ public class Betreuer extends Controller {
             Cache.set("betreuerliste", betreuerliste, "30mn");
         }
         
-        render(betreuerliste);
+        render(funktionen, betreuerliste);
 
     }
 

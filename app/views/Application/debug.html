@@ -1,0 +1,18 @@
+#{extends 'main.html' /}
+#{set title:'Debug' /}
+
+<h1>#{get 'title' /}</h1>
+
+<ul>
+<li>${function.id}</li>
+    <li>
+        ${function.funcname}
+    </li>
+    <li>
+        ${function.controllerName}
+    </li>
+    <li>
+        ${function.actionName}
+    </li>
+    <li>URL: ${url}</li>
+</ul>
